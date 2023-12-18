@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="./styles.css">
+
+</head>
+<body>
+
+    <div id="container">
+        <div class="header">
+            <h1>Reading Tracker</h1>
+        </div>
+        
+        <div class="sidebar">
+            <div class="bigTitle"><h3>Menu</h3></div>
+            <div id="menuContainer">
+                <button id="addBook" onclick="hiddenBtn()">Add a New Book</button>
+                <button id="editQuote" onclick="hiddenBtn()">Edit the Quote</button>
+                <div id="quote">
+                    <div><span class="bigQuote">“</span><h3>Remember that wherever your heart is, there you will find your treasure.</h3></div>
+                    <div><p>― Paulo Coelho, The Alchemist<span class="bigQuote end">”</span></p></div>
+                </div>
+            </div>
+            <div id="addBookFormContainer" class="hidden">
+                <form id="addBookForm">
+                    <h2>Add a New Book</h2>
+                    <ul>
+                        <li class="info">
+                            <label for="title" class="infoLabel">Title</label>
+                            <input id="title"
+                            name="title"
+                            type="text"
+                            placeholder=" "
+                            maxlength="72"
+                            pattern="^([a-zA-Z0-9]+\s)*[a-zA-Z0-9]+$"
+                            required/>
+                        </li>
+                        <li class="info">
+                            <label for="author" class="infoLabel">Author</label>
+                            <input id="author"
+                            name="author"
+                            type="text"
+                            placeholder=" "
+                            maxlength="32"
+                            pattern="^([a-zA-Z0-9]+\s)*[a-zA-Z0-9]+$"
+                            required/>
+                        </li>
+                        <li class="info">
+                            <label class="infoLabel">Types</label>
+                            <ul class="info-radio">
+                                <li>
+                                    <input type="radio" id="fiction" name="bookType" value="Fiction">
+                                    <label for="fiction" >Fiction</label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="nonfiction" name="bookType" value="Non-Fiction">
+                                    <label for="nonfiction" >Non&#8209;Fiction</label>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li>
+                            <label for="status" class="infoLabel">
+                                <input type="checkbox" id="status" type="checkbox">
+                                Read
+                            </label>
+                        </li>
+                    </ul>
+                    <div id="btnContainer">
+                        <input type="button" id="submitInfo" " value="Add">
+                        <input type="button" id="cancel" value="Cancel" onclick="hiddenForm()">
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        <div class="main">
+            <div class="bigTitle">
+                <h3>Book Gallery</h3>
+            </div>
+            <div id="bookGallery">
+                <div id="bookContainer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./javascript.js"></script>
+</body>
+</html>
