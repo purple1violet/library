@@ -5,24 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="./styles.css">
-
 </head>
 <body>
-
     <div id="container">
         <div class="header">
             <h1>Reading Tracker</h1>
         </div>
-        
         <div class="sidebar">
             <div class="bigTitle"><h3>Menu</h3></div>
             <div id="menuContainer">
-                <button id="addBook" onclick="hiddenBtn()">Add a New Book</button>
-                <button id="editQuote" onclick="hiddenBtn()">Edit the Quote</button>
+                <button id="addBook" onclick="hiddenAction.hiddenBtn()">Add a New Book</button>
+                <button id="editQuote" onclick="hiddenAction.hiddenQuoteBtn()">Edit the Quote</button>
                 <div id="quote">
-                    <div><span class="bigQuote">“</span><h3>Remember that wherever your heart is, there you will find your treasure.</h3></div>
-                    <div><p>― Paulo Coelho, The Alchemist<span class="bigQuote end">”</span></p></div>
+                    <div><span class="bigQuote">“</span><h3 id="quoteContent">Remember that wherever your heart is, there you will find your treasure.</h3></div>
+                    <div><p>― </p><p id="writer">Paulo Coelho, The Alchemist<span class="bigQuote end">”</span></p></div>
                 </div>
+            </div>
+            <div id="editQuoteFormContainer" class="hidden">
+                <form id="editQuoteForm">
+                    <h2>Edit the Quote</h2>
+                    <ul>
+                        <li class="info">
+                            <label for="bookName" class="infoLabel">Title</label>
+                            <input id="bookName"
+                            name="bookName"
+                            type="text"
+                            placeholder=" "
+                            maxlength="72"
+                            pattern="^([a-zA-Z0-9]+\s)*[a-zA-Z0-9]+$"
+                            required/>
+                        </li>
+                        <li class="info">
+                            <label for="bookAuthor" class="infoLabel">Author</label>
+                            <input id="bookAuthor"
+                            name="bookAuthor"
+                            type="text"
+                            placeholder=" "
+                            maxlength="32"
+                            pattern="^([a-zA-Z0-9]+\s)*[a-zA-Z0-9]+$"
+                            required/>
+                        </li>
+                        <li class="info">
+                            <label for="quotewords" class="infoLabel">Quote</label>
+                            <textarea id="quotewords"
+                            name="quotewords"
+                            rows="6"
+                            cols="30"
+                            placeholder=" "
+                            maxlength="300"
+                            pattern="^([a-zA-Z0-9]+\s)*[a-zA-Z0-9]+$"
+                            required>
+                            </textarea>
+                        </li>
+                    </ul>
+                    <div class="btnContainer">
+                        <input type="button" id="submitQuote" value="Add" onclick="hiddenAction.changeQuote()">
+                        <input type="button" value="Cancel" onclick="hiddenAction.hiddenQuoteForm()">
+                    </div>
+                </form>
             </div>
             <div id="addBookFormContainer" class="hidden">
                 <form id="addBookForm">
@@ -52,7 +92,7 @@
                             <label class="infoLabel">Types</label>
                             <ul class="info-radio">
                                 <li>
-                                    <input type="radio" id="fiction" name="bookType" value="Fiction">
+                                    <input type="radio" id="fiction" name="bookType" value="Fiction" required>
                                     <label for="fiction" >Fiction</label>
                                 </li>
                                 <li>
@@ -60,7 +100,7 @@
                                     <label for="nonfiction" >Non&#8209;Fiction</label>
                                 </li>
                             </ul>
-
+                            
                         </li>
                         <li>
                             <label for="status" class="infoLabel">
@@ -69,13 +109,12 @@
                             </label>
                         </li>
                     </ul>
-                    <div id="btnContainer">
-                        <input type="button" id="submitInfo" " value="Add">
-                        <input type="button" id="cancel" value="Cancel" onclick="hiddenForm()">
+                    <div class="btnContainer">
+                        <input type="button" id="submitInfo" value="Add" onclick="addBookAction.addBookToLibrary()">
+                        <input type="button" id="cancel" value="Cancel" onclick="hiddenAction.hiddenForm()">
                     </div>
                 </form>
             </div>
-            
         </div>
         <div class="main">
             <div class="bigTitle">
