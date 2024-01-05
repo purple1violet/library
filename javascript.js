@@ -1,4 +1,8 @@
 const myLibrary = [];
+
+
+
+
 //constructor
 class Book{
     constructor (title, author, types, status){
@@ -90,7 +94,7 @@ const addBookAction = ( function (){
             hiddenAction.hiddenForm();
             console.log(myLibrary);}
         else{
-        alert("It is a repeat book!");
+        alert("It is a repeated book!");
         }
     }
     return {getInputInfo, addBookToLibrary};
@@ -135,3 +139,25 @@ const hiddenAction = ( function (){
     }
     return {hiddenForm, hiddenBtn, hiddenQuoteForm, hiddenQuoteBtn, changeQuote};
 })();
+
+//start setting
+const de = [
+    {title:"Atomic Habits",author:"James Clear",types:"Non-Fiction",status:true},
+    {title:"The Alchemist",author:"Paulo Coelho",types:"Fiction",status:true},
+    {title:"Moby-Dick",author:"Herman Melville",types:"Fiction",status:false},
+    {title:"The Life-Changing Magic of Tidying Up",author:"Marie Kondo",types:"Non-Fiction",status:false}
+]
+
+function def(){
+for (let i = 0; i < de.length; i++){
+const title = de[i].title;
+const author = de[i].author;
+const types = de[i].types;
+const status = de[i].status;
+const newBook = new Book(title, author, types, status);
+myLibrary.push(newBook);
+newBook.displayBook();
+}
+}
+
+def();
